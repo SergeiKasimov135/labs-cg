@@ -86,10 +86,8 @@ def draw_polygons_n(vertex, polygons):
         x0, y0, z0 = (5000 * vertex[vert[0]][0] + W / 2), (5000 * vertex[vert[0]][1] + H / 2), (5000 * vertex[vert[0]][2] + 500)
         x1, y1, z1 = (5000 * vertex[vert[1]][0] + W / 2), (5000 * vertex[vert[1]][1] + H / 2), (5000 * vertex[vert[1]][2] + 500)
         x2, y2, z2 = (5000 * vertex[vert[2]][0] + W / 2), (5000 * vertex[vert[2]][1] + H / 2), (5000 * vertex[vert[2]][2] + 500)
-        print(x0, y0, z0, x1, y1, z1, x2, y2, z2)
         norm = norm_cal(x0, y0, z0, x1, y1, z1, x2, y2, z2)
         cosN = np.dot(norm, l) / (np.linalg.norm(norm) * np.linalg.norm(l))
-        print(np.dot(norm, l))
         if cosN < 0:
             draw_triangle_n(img, x0, y0, z0, x1, y1, z1, x2, y2, z2, [cosN * -255, cosN * -255, cosN * -255])
     image = Image.fromarray(img)
